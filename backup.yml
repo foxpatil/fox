@@ -1,0 +1,38 @@
+---
+
+
+- name: ios upgrade of the cisco network devices
+  hosts: all
+  gather_facts: false
+
+  vars:
+          
+       
+          ansible_command_timeout: 1200
+         
+
+
+  tasks:
+          - name: get current date
+            set_fact:  cdate="{{lookup('pipe','date +%Y-%m-%d')}}"
+
+          - name: Taking a backup
+            ios_command:
+                    commands:
+                            - sh run
+            register: output
+                           
+          - debug:
+                  var:
+                          output.stdout_lines
+
+          - name: create directory with current date
+            file:
+                    path: /home/netsec/switchiosupgrade/backup/{{ cdate }}
+                    state: directory
+
+          - name: Store output to creted directory
+            copy:
+                    content: "{{ output.stdout[0] }}"
+                    dest: "/home/netsec/switchiosupgrade/backup/{{ cdate }}/runningconfig_{{ inventory_hostname }}.txt"
+        
