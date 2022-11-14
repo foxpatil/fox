@@ -1,0 +1,21 @@
+---
+
+ - name: ios upgrade for 9200 switch
+   gather_facts: false
+
+   hosts: C2960
+   vars:
+           ansible_command_timeout: 1200
+   tasks:
+           - name: copy image to switch
+             ios_command:
+                     commands: sh run
+             register: run_output
+
+           - name: debug it
+             debug:
+                     var: run_output
+                                                                                  
+                       
+                         
+
