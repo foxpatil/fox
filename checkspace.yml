@@ -1,0 +1,31 @@
+---
+
+
+- name: ios upgrade of the cisco network devices
+  hosts: C2960
+  gather_facts: false
+
+  vars:
+          
+          ansible_command_timeout: 1200
+          
+  tasks:
+          - name: Gathering facts
+            ios_facts:
+                     
+          - name: Display the free space in flash
+            debug:
+                  msg:
+                          - " free space is {{ ansible_net_filesystems_info['flash:'].spacefree_kb }}"
+          - name: Fail if space is less
+            assert:
+                  that:
+                          - new_image_size < ansible_net_filesystems_info['flash:'].spacefree_kb
+                  fail_msg: Insufficient free space
+                  
+          
+          - name: Display the free space after
+            debug:
+                  msg:
+                          
+                          - " free space is {{ ansible_net_filesystems_info['flash:'].spacefree_kb }}"
