@@ -14,7 +14,7 @@
 
            - name: debug it
              debug:
-                     var: run_output.stdout_lines
+                     var: run_output.stdout[0]
                                                                                   
                        
                          
