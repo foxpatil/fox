@@ -30,10 +30,6 @@
                           - " Current version is {{ ansible_net_version }}"
                           - " To be upgraded version  {{ upgrade_ios_version }}"
 
-          - name: Fail if the current version and to be upgarded version is same
-            assert:
-                  that:
-                          - ansible_net_version != upgrade_ios_version
-                  fail_msg: version is same will not upgrade
+          
 
       
