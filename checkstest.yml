@@ -1,0 +1,39 @@
+---
+
+
+- name: ios upgrade of the cisco network devices
+  hosts: all
+  gather_facts: false
+
+  vars:
+          
+       
+          ansible_command_timeout: 1200
+         
+  tasks:
+          - name: gathering facts
+            ios_facts:
+                           
+          - name: Display the model of switch
+            debug:
+                  msg:
+                          - " switch model is {{ ansible_net_model}}"
+          - name: Fail if model is different
+            assert:
+                  that:
+                          - model == ansible_net_model
+                  fail_msg: Model is different
+
+          - name: Display the current version and the to be upgraded version
+            debug:
+                  msg:
+                          - " Current version is {{ ansible_net_version }}"
+                          - " To be upgraded version  {{ upgrade_ios_version }}"
+
+          - name: Fail if the current version and to be upgarded version is same
+            assert:
+                  that:
+                          - ansible_net_version != upgrade_ios_version
+                  fail_msg: version is same will not upgrade
+
+      
