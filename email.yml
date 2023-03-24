@@ -2,6 +2,7 @@
 
 - hosts: all
   gather_facts: true
+  become: true
   
 
   tasks:
@@ -9,7 +10,7 @@
 
           - name: send email if task failed
             mail:
-                    host: smtp.hal.hitachi.com
+                    host: localhost
                     port: 25
                     to: rohit.patil@hal.hitachi.com
                     subject: switch ios patching check failed for {{ inventory_hostname }}
