@@ -8,6 +8,6 @@
             mail:
                     host: localhost
                     port: 25
-                    to: rohit.patil@hal.hitachi.com
+                    to: rohit.patil@hal.hitachi.com, network.support@hal.hitachi.com
                     subject: Space checks for patching cisco switches
                     body: space is not enough on {{ ansible_hostname }} please recheck
