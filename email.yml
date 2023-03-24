@@ -9,7 +9,7 @@
 
           - name: send email if task failed
             mail:
-                    host: localhost
+                    host: smtp.hal.hitachi.com
                     port: 25
                     to: rohit.patil@hal.hitachi.com
                     subject: switch ios patching check failed for {{ inventory_hostname }}
