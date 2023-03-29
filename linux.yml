@@ -9,5 +9,6 @@
           file:
                   path: /tmp/cdate
                   state: directory
+                  mode: '0755'
                  
        
