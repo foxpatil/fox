@@ -1,12 +1,12 @@
 ---
- - hosts: linux
+ - hosts: all
    become: true
    gather_facts: false
 
 
    tasks:
         - name: create directory
-          file:
+          when: file:
                   path: /tmp/cdate/
                   state: directory
                  
