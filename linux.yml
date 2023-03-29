@@ -9,7 +9,5 @@
           file:
                   path: /tmp/cdate
                   state: directory
-                  user: netsec
-                  group: netsec
-                  mode: 0644
+                 
        
