@@ -7,7 +7,7 @@
    tasks:
         - name: create directory
           ansible.builtin.file:
-                  path: /home/netsec/cdate
+                  path: /home/netsec/cdate/
                   state: directory
                  
                  
