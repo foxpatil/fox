@@ -1,0 +1,11 @@
+---
+ - hosts: linux
+   become: true
+
+
+   tasks:
+        - name: create directory
+          file:
+                  path: /tmp/cdate
+                  state: directory
+          delegate_to: 137.168.72.4
