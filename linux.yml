@@ -7,7 +7,7 @@
    tasks:
         - name: create directory
           file:
-                  path: /home/netsec/cdate/
+                  path: /tmp/cdate/
                   state: directory
                  
                  
