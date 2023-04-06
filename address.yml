@@ -1,0 +1,23 @@
+---
+
+ - hosts: all
+   connection: local
+
+   vars:
+           ansible_username: admin
+           ansible_password: Quite.elegant@86
+           vdom: root
+
+   tasks:
+           - name: Register google DNS
+             fortios_address:
+                     host: 10.98.152.5
+                     username: admin
+                     password: Quite.elegant@86
+                     vdom: root
+                     state: present
+                     name: test
+                     type: ipmask
+                     value: 7.9.9.8
+
+
